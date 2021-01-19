@@ -9,7 +9,7 @@ Content types:
 * Sub-landing page - detail and links to specific pages within a service.
 * Page - the basic page that can be placed in a service, and on a service
   sub-landing page.
-* Status - an optional additional type for providing updates about a the status
+* Status - an optional additional type for providing updates about the status
   of a service.
 
 Other content types in the LocalGovDrupal distribution can also optionally
