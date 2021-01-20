@@ -2,8 +2,9 @@
 
 namespace Drupal\Tests\localgov_services\FunctionalJavascript;
 
-use \Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
+
 
 /**
  * Javascript tests for LocalGovDrupal services menu link group.
@@ -35,8 +36,7 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     'localgov_menu_link_group',
   ];
 
-  public function testServicesLinkGroupItemVisibility()
-  {
+  public function testServicesLinkGroupItemVisibility() {
 
     $parameters = new MenuTreeParameters();
     $parameters->onlyEnabledLinks();
@@ -60,6 +60,8 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     $this->assertArrayHasKey('my.submroute2', $route1_menu);
 
     // Check an item without children.
-    $this->assertFalse($main_menu_tree['my.route2']->hasChildren, 'Route2 menu has no children');
+    this->assertFalse($main_menu_tree['my.route2']->hasChildren, 'Route2 menu has no children');
+
   }
+
 }
