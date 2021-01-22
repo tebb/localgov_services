@@ -57,6 +57,6 @@ jobs:
         # TODO: Enable full tests.yml for repo.
         # Remove single file test if not needed.
         # run: ./run-tests.sh
-        # File parameter passed here is ignored and hardcoded for basic try-out
+        # Filename parameter passed here is ignored and hardcoded for basic try-out
         run: ./run-selected-tests.sh web/modules/contrib/localgov_services/tests/src/FunctionalJavascript/ServicesMenuGroupTest.php
         shell: bash
