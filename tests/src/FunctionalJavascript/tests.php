@@ -20,5 +20,7 @@ $admin_menu_tree = \Drupal::service('menu.link_tree')->load('admin', $parameters
 // array_keys(((array)$admin_menu_tree["system.admin"])["subtree"]);
 
 
+system_admin_content =  $admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree;
 
-$system_admin_content =  $admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree;
+>>> $system_admin_content=((array)$admin_menu_tree["system.admin"])["subtree"]["system.admin_content"]->subtree
+
