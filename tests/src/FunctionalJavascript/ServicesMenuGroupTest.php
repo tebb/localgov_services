@@ -83,6 +83,10 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     $this->assertArrayHasKey('admin_toolbar_tools.extra_links:view.files', $system_admin_content);
     $this->assertArrayHasKey('entity.localgov_directories_facets.collection', $system_admin_content);
 
+    $this->assertTrue($system_admin_content['admin_toolbar_tools.extra_links:node.add']->hasChildren, 'Node add has children');
+
+    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin_content_add_content_node_add */
+
   }
 
 }
