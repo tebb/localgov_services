@@ -33,6 +33,7 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     'localgov_services_status',
     'localgov_services_sublanding',
     'localgov_menu_link_group',
+    'localgov_directories',
   ];
 
   /**
@@ -74,14 +75,13 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
 
     $system_admin_content = $system_admin['system.admin_content']->subtree;
 
-    $this->assertCount(5, $system_admin_content, 'System admin content only has 5 items.');
+    $this->assertCount(5, $system_admin_content, 'System admin content has 5 items.');
 
-    // $this->assertArrayHasKey('add_content', $system_admin);
-    // $this->assertArrayHasKey('system.admin_structure', $system_admin);
-    // $this->assertArrayHasKey('system.themes_page', $system_admin);
-    // $this->assertArrayHasKey('system.modules_list', $system_admin);
-    // $this->assertArrayHasKey('system.admin_config', $system_admin);
-
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:node.add', $system_admin_content);
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:media_page', $system_admin_content);
+    $this->assertArrayHasKey('paragraphs_library.paragraphs_library_item.collection', $system_admin_content);
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:view.files', $system_admin_content);
+    $this->assertArrayHasKey('entity.localgov_directories_facets.collection', $system_admin_content);
 
   }
 

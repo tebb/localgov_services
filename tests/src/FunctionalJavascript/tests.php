@@ -24,3 +24,16 @@ system_admin_content =  $admin_menu_tree["system.admin"]->subtree["system.admin_
 
 >>> $system_admin_content=((array)$admin_menu_tree["system.admin"])["subtree"]["system.admin_content"]->subtree
 
+
+
+>>> gettype($system_admin_content=((array)$admin_menu_tree["system.admin"])["subtree"]["system.admin_content"]->subtree)
+=> "array"
+>>> array_keys($system_admin_content=((array)$admin_menu_tree["system.admin"])["subtree"]["system.admin_content"]->subtree)
+=> [
+     "admin_toolbar_tools.extra_links:node.add",
+     "admin_toolbar_tools.extra_links:media_page",
+     "paragraphs_library.paragraphs_library_item.collection",
+     "admin_toolbar_tools.extra_links:view.files",
+     "entity.localgov_directories_facets.collection",
+   ]
+>>>
