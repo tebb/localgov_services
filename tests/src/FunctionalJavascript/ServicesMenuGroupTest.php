@@ -35,6 +35,9 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     'localgov_menu_link_group',
   ];
 
+  /**
+   * Check menu structure is as expected.
+   */
   public function testServicesLinkGroupItemVisibility() {
 
     $parameters = new MenuTreeParameters();
