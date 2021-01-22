@@ -2,14 +2,14 @@ name: Execute run-tests.sh from drupal-container on this branch
 
 on:
   push:
-  # TODO: Remove feature branch when raise pr
+    # TODO: Remove feature branch when raise pr
     branches: [master, feature/119-add-menu-grouping-config-for-services]
   pull_request:
     branches: [master]
 
 jobs:
   test:
-    name: 'Execute run-tests.sh'
+    name: 'Execute run-selected-tests.sh'
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,10 @@ jobs:
       - name: Clone drupal-container
         uses: actions/checkout@v2
         with:
-          repository: localgovdrupal/drupal-container
-          ref: master
+          # TODO: Temp: Use drupal-container + run-selected-tests.sh
+          # TODO: Probably better an array than single
+          repository: tebb/drupal-container
+          ref: feature/allow-test-file-selection
 
       - name: Create LocalGov Drupal project
         run: composer create-project --stability dev localgovdrupal/localgov-project html
@@ -50,8 +52,10 @@ jobs:
       - name: Start Docker environment
         run: docker-compose up -d
 
-      - name: Run tests
-      # TODO: Re-enable full tests & remove single file test when raise when pr
+      # - name: Run tests
+      - name: Run selected tests
+        # TODO: Re-enable full tests & remove single file test when raise when pr
         # run: ./run-tests.sh
-        run: phpunit web/modules/contrib/localgov_services/tests/src/FunctionalJavascript/ServicesMenuGroupTest.php
+        # File parameter passed here is ignored and hardcoded for basic try-out
+        run: ./run-selected-tests.sh web/modules/contrib/localgov_services/tests/src/FunctionalJavascript/ServicesMenuGroupTest.php
         shell: bash
