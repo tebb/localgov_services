@@ -50,7 +50,7 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
 
     $this->assertArrayHasKey('system.admin', $admin_menu);
 
-    $this->assertTrue($admin_menu['system.admin']->hasChildren, 'system admin has children');
+    $this->assertTrue($admin_menu['system.admin']->hasChildren, 'System admin has children');
 
     /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin */
 
@@ -68,7 +68,21 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     $this->assertArrayHasKey('help.main', $system_admin);
     $this->assertArrayHasKey('admin_toolbar_tools.help', $system_admin);
 
-    $this->assertTrue($system_admin['system.admin_content']->hasChildren, 'system admin conten has children');
+    $this->assertTrue($system_admin['system.admin_content']->hasChildren, 'System admin content has children');
+
+    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin_content */
+
+    $system_admin_content = $system_admin['system.admin_content']->subtree;
+
+    $this->assertCount(5, $system_admin_content, 'System admin content only has 5 items.');
+
+    // $this->assertArrayHasKey('add_content', $system_admin);
+    // $this->assertArrayHasKey('system.admin_structure', $system_admin);
+    // $this->assertArrayHasKey('system.themes_page', $system_admin);
+    // $this->assertArrayHasKey('system.modules_list', $system_admin);
+    // $this->assertArrayHasKey('system.admin_config', $system_admin);
+
+
   }
 
 }
