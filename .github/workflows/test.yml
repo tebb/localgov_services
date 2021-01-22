@@ -2,7 +2,8 @@ name: Test LocalGov Drupal
 
 on:
   push:
-    branches: [ master ]
+  # TODO: Remove feature branch
+    branches: [ master, feature/119-add-menu-grouping-config-for-services ]
   pull_request:
     branches: [ master ]
 
@@ -30,5 +31,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Run tests
-        run: ./run-tests.sh
+      # TODO: Re-enable full testing and remove single file testing
+        # run: ./run-tests.sh
+        run: phpunit web/modules/contrib/localgov_services/tests/src/FunctionalJavascript/ServicesMenuGroupTest.php
         shell: bash
