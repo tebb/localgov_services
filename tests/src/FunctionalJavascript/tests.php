@@ -37,3 +37,20 @@ system_admin_content =  $admin_menu_tree["system.admin"]->subtree["system.admin_
      "entity.localgov_directories_facets.collection",
    ]
 >>>
+
+// Menu item details Level 3
+$system_admin_content_add_node=$admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree["admin_toolbar_tools.extra_links:node.add"
+]->hasChildren
+
+
+>>> array_keys($system_admin_content_add_node=$admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree["admin_toolbar_tools.extra_links:node.add"
+]->subtree)
+=> [
+     "admin_toolbar_tools.extra_links:node.add.localgov_services_status",
+     "localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:services",
+     "localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:step_by_step",
+     "localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:subsite",
+     "localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:guide",
+     "localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:directory",
+   ]
+>>>
