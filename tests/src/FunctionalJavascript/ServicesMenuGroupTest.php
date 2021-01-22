@@ -43,12 +43,29 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $admin_menu_tree */
     $admin_menu = \Drupal::service('menu.link_tree')->load('admin', $parameters);
 
-    $this->assertCount(1, $admin_menu, 'Admin menu only has 1 top level item.');
-    # TODO: Determine correct route names etc
-    $this->assertArrayHasKey('system.admin', $admin_menu);
-    # $this->assertArrayHasKey('system.admin_content', $admin_menu);
-    # $this->assertArrayHasKey('admin.tools', $admin_menu);
+    $this->assertCount(1, $admin_menu, 'Admin menu only has 1 top level items.');
 
+    $this->assertArrayHasKey('system.admin', $admin_menu);
+
+    $this->assertTrue($admin_menu['system.admin']->hasChildren, 'system admin has children');
+
+    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin */
+
+    $system_admin = $admin_menu['system.admin']->subtree;
+
+    $this->assertCount(9, $system_admin, 'System admin only has 9 items.');
+
+    $this->assertArrayHasKey('system.admin_content', $system_admin);
+    $this->assertArrayHasKey('system.admin_structure', $system_admin);
+    $this->assertArrayHasKey('system.themes_page', $system_admin);
+    $this->assertArrayHasKey('system.modules_list', $system_admin);
+    $this->assertArrayHasKey('system.admin_config', $system_admin);
+    $this->assertArrayHasKey('system.admin_reports', $system_admin);
+    $this->assertArrayHasKey('entity.user.collection', $system_admin);
+    $this->assertArrayHasKey('help.main', $system_admin);
+    $this->assertArrayHasKey('admin_toolbar_tools.help', $system_admin);
+
+    $this->assertTrue($system_admin['system.admin_content']->hasChildren, 'system admin conten has children');
   }
 
 }
