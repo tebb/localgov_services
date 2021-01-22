@@ -35,6 +35,9 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     'localgov_menu_link_group',
   ];
 
+  /**
+   * Check menu structure is as expected.
+   */
   public function testServicesLinkGroupItemVisibility() {
 
     $parameters = new MenuTreeParameters();
@@ -44,11 +47,10 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     $admin_menu = \Drupal::service('menu.link_tree')->load('admin', $parameters);
 
     $this->assertCount(1, $admin_menu, 'Admin menu only has 1 top level item.');
-    # TODO: Determine correct route names etc
+    // TODO: Determine correct route names etc.
     $this->assertArrayHasKey('system.admin', $admin_menu);
-    # $this->assertArrayHasKey('system.admin_content', $admin_menu);
-    # $this->assertArrayHasKey('admin.tools', $admin_menu);
-
+    // $this->assertArrayHasKey('system.admin_content', $admin_menu);
+    // $this->assertArrayHasKey('admin.tools', $admin_menu);
   }
 
 }
