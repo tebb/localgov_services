@@ -14,3 +14,4 @@ child_menu_links:
   - 'admin_toolbar_tools.extra_links:node.add.localgov_services_landing'
   - 'admin_toolbar_tools.extra_links:node.add.localgov_services_page'
   - 'admin_toolbar_tools.extra_links:node.add.localgov_services_sublanding'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_services_status'
