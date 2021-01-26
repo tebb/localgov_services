@@ -34,6 +34,11 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     'localgov_services_sublanding',
     'localgov_menu_link_group',
     'localgov_directories',
+    'localgov_events',
+    'localgov_guides',
+    'localgov_subsites',
+    'localgov_step_by_step',
+
   ];
 
   /**
@@ -85,7 +90,18 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
 
     $this->assertTrue($system_admin_content['admin_toolbar_tools.extra_links:node.add']->hasChildren, 'Node add has children');
 
-    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin_content_add_content_node_add */
+    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin_content_add_content */
+
+    $system_admin_content_add_content = $system_admin_content['admin_toolbar_tools.extra_links:node.add']->subtree;
+
+    $this->assertCount(6, $system_admin_content_add_content, 'System admin add content has 5 items.');
+
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:services', $system_admin_content_add_content);
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:step_by_step', $system_admin_content_add_content);
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:subsite', $system_admin_content_add_content);
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:guide', $system_admin_content_add_content);
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:directory', $system_admin_content_add_content);
+    $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:events', $system_admin_content_add_content);
 
   }
 
