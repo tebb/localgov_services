@@ -103,6 +103,24 @@ class ServicesMenuGroupTest extends WebDriverTestBase {
     $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:directory', $system_admin_content_add_content);
     $this->assertArrayHasKey('localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:events', $system_admin_content_add_content);
 
+    $this->assertTrue($system_admin_content_add_content['localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:services']->hasChildren, 'Services has children');
+
+    /** @var \Drupal\Core\Menu\MenuLinkTreeElement[] $system_admin_content_add_content_services */
+
+    $system_admin_content_add_content_services = $system_admin_content_add_content['localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:services']->subtree;
+
+    $this->assertCount(4, $system_admin_content_add_content_services, 'System admin add content services has 4 items.');
+
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:node.add.localgov_services_landing', $system_admin_content_add_content_services);
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:node.add.localgov_services_sublanding', $system_admin_content_add_content_services);
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:node.add.localgov_services_page', $system_admin_content_add_content_services);
+    $this->assertArrayHasKey('admin_toolbar_tools.extra_links:node.add.localgov_services_status', $system_admin_content_add_content_services);
+
+    $this->assertFalse($system_admin_content_add_content_services['admin_toolbar_tools.extra_links:node.add.localgov_services_landing']->hasChildren, 'Localgov Services Landing does not have children');
+    $this->assertFalse($system_admin_content_add_content_services['admin_toolbar_tools.extra_links:node.add.localgov_services_sublanding']->hasChildren, 'Localgov Services Sublanding does not have children');
+    $this->assertFalse($system_admin_content_add_content_services['admin_toolbar_tools.extra_links:node.add.localgov_services_page']->hasChildren, 'Localgov Services Page does not have children');
+    $this->assertFalse($system_admin_content_add_content_services['admin_toolbar_tools.extra_links:node.add.localgov_services_status']->hasChildren, 'Localgov Services Status does not have children');
+
   }
 
 }

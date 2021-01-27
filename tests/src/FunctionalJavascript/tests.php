@@ -39,8 +39,7 @@ system_admin_content =  $admin_menu_tree["system.admin"]->subtree["system.admin_
 >>>
 
 // Menu item details Level 3
-$system_admin_content_add_node=$admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree["admin_toolbar_tools.extra_links:node.add"
-]->hasChildren
+array keys ($system_admin_content_add_node_services=$admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree["admin_toolbar_tools.extra_links:node.add"]->subtree["localgov_menu_link_group:admin_toolbar_tools.extra_links:node.add:services"]->subtree)
 
 
 >>> array_keys($system_admin_content_add_node=$admin_menu_tree["system.admin"]->subtree["system.admin_content"]->subtree["admin_toolbar_tools.extra_links:node.add"
